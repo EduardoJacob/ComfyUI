@@ -18,9 +18,9 @@ COMFYUI = function(image_prompt) {
   payload_json <- jsonlite::toJSON(payload, auto_unbox = TRUE, digits = NA)
   
   # 2. Submit the Prompt
-  response <- httr2::request(paste0(comfy_url, "/prompt")) %>%
-    httr2::req_body_raw(payload_json, type = "application/json") %>%
-    httr2::req_error(is_error = function(resp) FALSE) %>% 
+  response <- httr2::request(paste0(comfy_url, "/prompt")) |>
+    httr2::req_body_raw(payload_json, type = "application/json") |>
+    httr2::req_error(is_error = function(resp) FALSE) |> 
     httr2::req_perform()
   
   if (httr2::resp_status(response) != 200) {
@@ -38,7 +38,7 @@ COMFYUI = function(image_prompt) {
   
   while(!is_done) {
     # Request the history log
-    history_resp <- httr2::request(paste0(comfy_url, "/history")) %>%
+    history_resp <- httr2::request(paste0(comfy_url, "/history")) |>
       httr2::req_perform()
     
     history_data <- httr2::resp_body_json(history_resp)

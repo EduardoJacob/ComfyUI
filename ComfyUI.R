@@ -23,29 +23,39 @@ source("ComfyUIfunctions.R")
 image_folder = "S:/ComfyUI/ComfyUI-Easy-Install/ComfyUI/output"
 image_prefix = "img"
 image_index  = 0 
+# terminal_id = rstudiotools::terminal(".\\LMstudioStart.ps1")
 
 for ( image_index in 0:100 ) {
   image = paste0(image_prefix,"_",sprintf("%05d",image_index),"_.png")
   image_full_name = file.path(image_folder,image)
   rstudiotools::displaymedia(image_full_name)
   
-  image_prompt = aitools::gemini(
+  # Using Gemini depletes available credits.
+  # image_prompt = aitools::gemini(
+  #   prompt = "Describe this image in no more than 50 words, suitable for the Z-Image-Turbo model",
+  #   model = "3-flash-preview",
+  #   image = image_full_name
+  # )[1]
+  
+  # Better use a Local Model
+  system2("powershell", args = c("-File", paste0('LMstudioStart.ps1')), stdout = T, stderr = F, wait = T)
+  
+  image_prompt = aitools::lmstudio(
     prompt = "Describe this image in no more than 50 words, suitable for the Z-Image-Turbo model",
-    model = "3-flash-preview",
     image = image_full_name
   )[1]
   
-  cat( 
-    cli::rule(left = image, col = "blue"),
-    "\n",
-    image_prompt,
-    "\n" 
-  )
+  system2("powershell", args = c("-File", paste0('LMstudioEnd.ps1')), stdout = T, stderr = F, wait = T)
   
+  
+  # Remove newlines from the prompt
+  image_prompt = trimws( gsub("\n", "", image_prompt) )
+  
+  cat( cli::rule(left = image, col = "blue"),"\n",image_prompt,"\n" )
+   
   # Call ComfyUI API to generate a new image based on the image Prompt
   COMFYUI(image_prompt)
 }
-
 
 
 

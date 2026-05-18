@@ -1,11 +1,7 @@
-
+# This file is intended to be used as a template for setting up a new R package project.
 # if exists ".Rbuildignore", then add current file to it
-if (file.exists(".Rbuildignore")) {
-  current_file = basename( rstudioapi::getSourceEditorContext()$path )
-  usethis::use_build_ignore(current_file)
-} 
 
-usethis::use_git_ignore("tools/")
+# usethis::use_git_ignore("tools/")
 
 # No caso de falhar o "Package Check" com Codoc mismatches from Rd file
 # devtools::document()
