@@ -1,4 +1,4 @@
-YouTube Data Analysis with R
+Controlling ComfyUI from R and RStudio
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file  -->
@@ -16,27 +16,63 @@ take a look at my youtube playlist with R Tutorials:
 
 ------------------------------------------------------------------------
 
-## Project Overview
+# ComfyUI and LM Studio Integration Scripts
 
-# ComfyUI R Integration Project
+This suite of R scripts provides a robust framework for automating image
+generation, analysis, and enhancement workflows by integrating
+**ComfyUI** and **LM Studio**. By leveraging R for task management,
+users can programmatically chain together complex AI pipelines,
+including recursive generation, upscaling, and prompt engineering.
 
-This project provides an R-based interface to automate image processing
-and generation workflows using ComfyUI. The main script, `ComfyUI.R`,
-orchestrates a loop that iterates through local images, utilizes the
-Gemini API via `aitools` to generate descriptive prompts for each image,
-and then feeds those prompts back into a ComfyUI instance via a REST API
-to generate new variations. It integrates seamlessly with RStudio tools
-for media display and console management, making it an efficient bridge
-between local image management and AI-driven generative workflows.
+## Main Script: `ComfyUIfunctions.R`
 
-### Functions
+This is the core utility script that serves as the engine for all other
+operations. It defines the communication protocol between the R
+environment and local AI services, managing workflow execution, image
+processing, and history tracking.
 
-**COMFYUI(image_prompt)** This function serves as the primary interface
-between R and the ComfyUI API. It loads a predefined JSON workflow from
-`workflow_for_r.json`, injects a specific text prompt into the
-workflow’s input nodes, and submits the request to a local ComfyUI
-server. The function handles the entire execution lifecycle, including
-generating a unique client ID, polling the server’s history endpoint to
-monitor progress, providing real-time status updates to the R console,
-and finally confirming the filenames of the generated images once the
-process is complete.
+### Defined Functions
+
+- **`COMFYUI(workflow, prompt = "", image = "")`** This function acts as
+  the bridge to the ComfyUI API. It takes a JSON workflow file,
+  optionally injects a text prompt or input image path, and handles the
+  submission of the job to the ComfyUI server. It includes a polling
+  mechanism that monitors the `/history` endpoint, waiting for the
+  generation process to complete before returning the resulting filename
+  or generated text output.
+
+## Workflow Execution Scripts
+
+- **`10_LM_Studio_PromptGenerator.R`** Automates the generation of text
+  prompts based on existing images. It iterates through a folder of
+  JPEGs, displays the images in RStudio, and sends them to a local LM
+  Studio model to produce optimized, summarized text prompts. These
+  prompts are then saved to a file for later use in generation tasks.
+- **`15_ComfyUI_PromptGenerator.R`** Facilitates automated image
+  captioning or analysis. It processes a folder of images through a
+  specific ComfyUI workflow (defined by `QwenVL3.json`) to generate
+  textual descriptions or analysis output, automatically launching the
+  output folder once complete.
+- **`20_LM_Studio_RecursiveGenerator.R`** Implements a recursive
+  feedback loop. It alternates between using LM Studio to describe an
+  existing image and feeding that description into a ComfyUI workflow to
+  generate a new, modified version of that image. This process repeats
+  for a set number of iterations to evolve images iteratively.
+- **`25_ComfyUI_RecursiveGenerator.R`** A purely image-to-image
+  recursive workflow. It uses a primary ComfyUI workflow to generate a
+  prompt from an image, then immediately uses that prompt in a second
+  workflow to create a new image. This process iterates, allowing the
+  generated image to serve as the source for the next generation cycle.
+- **`30_ComfyUI_MassGenerator.R`** Designed for batch generation. It
+  reads a list of text prompts from a file and runs them through a
+  specified ComfyUI workflow to mass-produce images. This script is
+  highly configurable, allowing users to select different workflows and
+  control the volume of images generated per prompt.
+- **`40_ComfyUI_Upscaler.R`** Handles batch upscaling of images. It
+  iterates through an input folder, processes each image through a
+  dedicated upscaling ComfyUI workflow, and displays the high-resolution
+  results within the RStudio interface.
+- **`50_ComfyUI_PromptEnhancer.R`** Demonstrates prompt engineering
+  workflows. It utilizes a text-to-text workflow to refine user input
+  into complex image generation prompts, which are then passed to a
+  text-to-image workflow to produce the final visual result.
