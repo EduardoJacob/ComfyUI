@@ -1,0 +1,148 @@
+{
+  "197": {
+    "inputs": {
+      "width": 1280,
+      "height": 720,
+      "batch_size": 1
+    },
+    "class_type": "EmptyFlux2LatentImage",
+    "_meta": {
+      "title": "Empty Flux 2 Latent"
+    }
+  },
+  "203": {
+    "inputs": {
+      "filename_prefix": "FLUX.2.4B.IMAGE.GENERATION",
+      "images": [
+        "211:164",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "210": {
+    "inputs": {
+      "value": "3D cartoon illustration of a cute warrior tiger in a karate dojo, wearing an orange gi with a traditional black belt tied neatly, striking a strong karate stance matching a classic forward lunge with one arm extended in an open-hand block and the other fist chambered at the waist, big expressive eyes and adorable confident expression, soft fluffy fur detail visible around the face and ears, clean stylized proportions like a high-end animated movie character, warm indoor dojo lighting, polished wooden floor with subtle reflections, shoji screens and wooden beams in the background, shallow depth of field, cinematic framing, high-resolution 3D render, 50mm lens look, f/2.8\n"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "String (Multiline)"
+    }
+  },
+  "211:194": {
+    "inputs": {
+      "unet_name": "flux-2-klein-4b-fp8.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "211:195": {
+    "inputs": {
+      "clip_name": "qwen_3_4b.safetensors",
+      "type": "flux2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "211:196": {
+    "inputs": {
+      "vae_name": "flux2-vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "211:190": {
+    "inputs": {
+      "conditioning": [
+        "211:6",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "211:163": {
+    "inputs": {
+      "seed": 928593832870017,
+      "steps": 5,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "211:194",
+        0
+      ],
+      "positive": [
+        "211:6",
+        0
+      ],
+      "negative": [
+        "211:190",
+        0
+      ],
+      "latent_image": [
+        "197",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "211:164": {
+    "inputs": {
+      "samples": [
+        "211:163",
+        0
+      ],
+      "vae": [
+        "211:196",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "211:6": {
+    "inputs": {
+      "text": [
+        "210",
+        0
+      ],
+      "clip": [
+        "211:195",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "211:209": {
+    "inputs": {
+      "image": "FLUX.2.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  }
+}
