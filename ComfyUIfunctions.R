@@ -2,39 +2,38 @@
 comfyui_input_folder = "S:/ComfyUI/ComfyUI-Easy-Install/ComfyUI/input"
 comfyui_output_folder = "S:/ComfyUI/ComfyUI-Easy-Install/ComfyUI/output"
 
-COMFYUI = function(workflow,      # .json workflow file path
-                   prompt=NULL,   # text prompt to inject into the workflow (optional)
-                   image=NULL     # input image file path to inject into the workflow (optional)
+COMFYUI = function(workflow,    # .json workflow file path
+                   prompt="",   # text prompt to inject into the workflow (optional)
+                   image=""     # input image file path to inject into the workflow (optional)
 ) {
   
   # Load and modify workflow ----
   comfy_url = "http://127.0.0.1:8188"
   filename_prefix = tools::file_path_sans_ext(basename(workflow))
-  workflow = jsonlite::read_json(workflow, simplifyVector = FALSE)
- 
-  # Generic modifications for all workflows
-  workflow = purrr::modify_depth(workflow, 1, function(node) {
-    if (!is.null(node$inputs$text)) node$inputs$text = prompt
-    if (!is.null(node$inputs$value)) node$inputs$value = prompt
-    if (!is.null(node$inputs$filename_prefix)) node$inputs$filename_prefix = filename_prefix
-    if (!is.null(node$inputs$seed)) node$inputs$seed = sample(1000000,1)
-    return(node)
-  })
   
-  # Specific modifications for certain workflows
-  if ( filename_prefix == "upscaler" ) workflow[["94"]][["inputs"]][["image"]] = image
+  workflow = readLines(workflow, encoding = "UTF-8", warn = FALSE)  
   
-  
+  for ( i in 1:length(workflow) ) {
+    workflow[i] = stringr::str_replace(workflow[i],"PROMPT",prompt)
+    workflow[i] = stringr::str_replace(workflow[i],"IMAGE",image)
+    
+    workflow[i] = stringr::str_replace(workflow[i],"FILENAME_PREFIX",filename_prefix) 
+    workflow[i] = stringr::str_replace(workflow[i],"SEED",as.character( sample(1000000,1)) )
+  }
   
   
   
   # Submit the prompt ----
-  payload = list(prompt = workflow, client_id = uuid::UUIDgenerate())
-  payload_json = jsonlite::toJSON(payload, auto_unbox = TRUE, digits = NA)
+  payload = list(
+    prompt = jsonlite::fromJSON(paste(workflow, collapse = "\n"), simplifyVector = FALSE),
+    client_id = uuid::UUIDgenerate()
+  )
+  
+  payload_json = jsonlite::toJSON(payload,auto_unbox = TRUE,digits = NA)
   
   response = httr2::request(paste0(comfy_url, "/prompt")) |>
     httr2::req_body_raw(payload_json, type = "application/json") |>
-    httr2::req_error(is_error = function(resp) FALSE) |> 
+    httr2::req_error(is_error = function(resp) FALSE) |>
     httr2::req_perform()
   
   if (httr2::resp_status(response) != 200) {
@@ -72,12 +71,24 @@ COMFYUI = function(workflow,      # .json workflow file path
       # Optional: Extract filename metadata from the history object
       node_outputs = history_data[[prompt_id]][["outputs"]]
       
+      # Get the response ----
       output_image = node_outputs |>
         purrr::map(~purrr::pluck(.x, "images", .default = list())) |> 
         purrr::flatten() |>                                    
         purrr::map_chr("filename")                              
-       
-      cat("Saved Image Name:", output_image, "\n")
+      
+      output_text = node_outputs |>
+        purrr::map(~purrr::pluck(.x, "text", .default = character())) |>
+        unlist(use.names = FALSE)                           
+      
+      if ( length(output_image) > 0 ) {
+        output_data = output_image
+        cat("Saved Image Name:", output_data, "\n")
+      } else {
+        cat("Output Text:\n", output_text, "\n")
+        output_data = sub("\n.*", "",output_text)
+      }
+      
       
     } else {
       # Still running or in queue; print a visual heartbeat
@@ -88,20 +99,10 @@ COMFYUI = function(workflow,      # .json workflow file path
     }
   }
   
-  # Return new image filename ----
-  return(output_image)
+  # Return output data ----
+  return(output_data)
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 

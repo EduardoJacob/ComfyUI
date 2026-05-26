@@ -1,7 +1,7 @@
 {
   "9": {
     "inputs": {
-      "filename_prefix": "upscaler",
+      "filename_prefix": "FILENAME_PREFIX",
       "images": [
         "95",
         0
@@ -14,7 +14,7 @@
   },
   "94": {
     "inputs": {
-      "image": "img194.png"
+      "image": "IMAGE"
     },
     "class_type": "LoadImage",
     "_meta": {

@@ -1,29 +1,15 @@
 {
   "9": {
     "inputs": {
-      "filename_prefix": "z-image-turbo",
+      "filename_prefix": "FILENAME_PREFIX",
       "images": [
-        "62",
+        "57:8",
         0
       ]
     },
     "class_type": "SaveImage",
     "_meta": {
       "title": "Save Image"
-    }
-  },
-  "62": {
-    "inputs": {
-      "upscale_method": "lanczos",
-      "scale_by": 2,
-      "image": [
-        "57:8",
-        0
-      ]
-    },
-    "class_type": "ImageScaleBy",
-    "_meta": {
-      "title": "Upscale Image By"
     }
   },
   "57:30": {
@@ -86,7 +72,7 @@
   },
   "57:27": {
     "inputs": {
-      "text": "Digital fantasy oil painting, cinematic medieval midnight storm in the mountains, a lone woman rides a horse away from the viewer along a narrow rocky path, rain lashes her dark weathered cloak and leather armor, long messy auburn hair soaked and whipping in the wind, the horse in full gallop with detailed saddle and heavy saddlebags, jagged peaks and pine silhouettes fade into black fog, lightning forks across dense thunderclouds and briefly reveals a towering vampire castle ahead perched on a cliff, spires and battlements like fangs, cold moonlight and harsh lightning flashes create dramatic chiaroscuro, puddles on the path reflect white lightning, wet stone textures and misty spray, wolves hidden in the darkness on both sides of the trail with multiple pairs of glowing eyes watching her approach, tense ominous atmosphere, high detail environment, realistic rain and water ripples, deep blues and charcoal blacks with sharp white lightning and subtle crimson accents from the distant castle windows, wide angle low tracking view, epic scale, immersive dramatic composition, masterpiece quality.",
+      "text": "PROMPT",
       "clip": [
         "57:30",
         0
@@ -123,7 +109,7 @@
   },
   "57:3": {
     "inputs": {
-      "seed": 259019706501729,
+      "seed": SEED,
       "steps": 9,
       "cfg": 1,
       "sampler_name": "res_multistep",

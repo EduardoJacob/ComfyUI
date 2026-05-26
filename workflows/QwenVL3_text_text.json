@@ -1,0 +1,28 @@
+{
+  "1": {
+    "inputs": {
+      "model_name": "Qwen3VL-8B-Instruct-Q8_0.gguf",
+      "preset_prompt": "🖼️ Detailed Description",
+      "custom_prompt": "PROMPT",
+      "max_tokens": 512,
+      "keep_model_loaded": true,
+      "seed": SEED
+    },
+    "class_type": "AILab_QwenVL_GGUF",
+    "_meta": {
+      "title": "QwenVL (GGUF)"
+    }
+  },
+  "2": {
+    "inputs": {
+      "source": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "Preview as Text"
+    }
+  }
+}

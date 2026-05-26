@@ -12,7 +12,7 @@
   },
   "203": {
     "inputs": {
-      "filename_prefix": "FLUX.2.4B.IMAGE.GENERATION",
+      "filename_prefix": "FILENAME_PREFIX",
       "images": [
         "212",
         0
@@ -25,7 +25,7 @@
   },
   "210": {
     "inputs": {
-      "value": "3D cartoon illustration of a cute warrior tiger in a karate dojo, wearing an orange gi with a traditional black belt tied neatly, striking a strong karate stance matching a classic forward lunge with one arm extended in an open-hand block and the other fist chambered at the waist, big expressive eyes and adorable confident expression, soft fluffy fur detail visible around the face and ears, clean stylized proportions like a high-end animated movie character, warm indoor dojo lighting, polished wooden floor with subtle reflections, shoji screens and wooden beams in the background, shallow depth of field, cinematic framing, high-resolution 3D render, 50mm lens look, f/2.8\n"
+      "value": "PROMPT"
     },
     "class_type": "PrimitiveStringMultiline",
     "_meta": {
@@ -90,7 +90,7 @@
   },
   "211:163": {
     "inputs": {
-      "seed": 670484589325206,
+      "seed": SEED,
       "steps": 5,
       "cfg": 1,
       "sampler_name": "euler",

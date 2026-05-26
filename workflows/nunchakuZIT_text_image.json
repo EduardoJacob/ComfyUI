@@ -1,7 +1,7 @@
 {
   "6": {
     "inputs": {
-      "text": "A majestic fantasy kingdom glowing with golden light, built into steep, dark mountain cliffs. Intricate gothic architecture with towering spires and illuminated windows. A vintage steampunk airship floats in the upper left against a dramatic twilight sky of deep purples and pinks. Rocky foreground with a winding path leading up to the city. Cinematic composition, magical atmosphere, highly detailed digital art. ",
+      "text": "PROMPT",
       "clip": [
         "195",
         0
@@ -25,7 +25,7 @@
   },
   "163": {
     "inputs": {
-      "seed": 369178469421948,
+      "seed": SEED,
       "steps": 5,
       "cfg": 1,
       "sampler_name": "dpmpp_sde",
@@ -71,7 +71,7 @@
   },
   "171": {
     "inputs": {
-      "filename_prefix": "nunchaku_",
+      "filename_prefix": "FILENAME_PREFIX",
       "images": [
         "164",
         0

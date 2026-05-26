@@ -4,18 +4,19 @@ source("ComfyUIfunctions.R")
  
 prompts = readLines("./prompts/prompts.txt", encoding = "UTF-8")
 workflow = "./workflows/zit.json"
-workflow = "./workflows/nunchaku-zit.json"
 workflow = "./workflows/flux.json"
+workflow = "./workflows/nunchaku-zit.json"
 # workflow = "./workflows/juggernaut-reborn.json" # old model
-workflow = "./workflows/flux-2x.json"
 workflow = "./workflows/zit-2x.json"
+workflow = "./workflows/flux-2x.json"
+
 
 start = 1
 end = length(prompts)
 N = 1 # Number of images to generate per prompt
 
-start = 1
-end = 9
+start = 6
+end = 6
 # N = 5 # Number of images to generate per prompt
 
 i = 1
