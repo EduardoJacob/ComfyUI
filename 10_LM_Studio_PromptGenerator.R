@@ -32,10 +32,6 @@ for (i in start:end ) {
   answer = aitools::lmstudio(prompt,image=f)
   answer = stringr::str_squish(answer)
   print(answer)
-  # Count the words in the answer
-  # word_count = stringr::str_count(answer, "\\w+") 
-  # cat("Word count:", word_count, "\n")
-  # Append the answer to a text file
   write(answer, file = output_file, append = TRUE)
 }
 

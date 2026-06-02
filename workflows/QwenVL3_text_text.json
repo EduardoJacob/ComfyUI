@@ -2,10 +2,10 @@
   "1": {
     "inputs": {
       "model_name": "Qwen3VL-8B-Instruct-Q8_0.gguf",
-      "preset_prompt": "🖼️ Detailed Description",
+      "preset_prompt": "🪄 Prompt Refine & Expand",
       "custom_prompt": "PROMPT",
-      "max_tokens": 512,
-      "keep_model_loaded": true,
+      "max_tokens": 1024,
+      "keep_model_loaded": false,
       "seed": SEED
     },
     "class_type": "AILab_QwenVL_GGUF",

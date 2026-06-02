@@ -1,6 +1,5 @@
 
 
-source("ComfyUIfunctions.R")
 
 workflow = "./workflows/zit.json"
 

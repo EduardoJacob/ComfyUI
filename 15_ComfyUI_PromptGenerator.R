@@ -3,7 +3,7 @@
 source("ComfyUIfunctions.R")
 
 input_folder = "P:/temp"
-workflow = "./workflows/QwenVL3.json"
+workflow = "./workflows/QwenVL3_image_text.json"
 files = list.files(input_folder,full.names=T)
 
 start = 1
@@ -14,6 +14,7 @@ i = 1
 for ( i in start:end ) {
   f = files[i] 
   cat("\nProcessing file",i,"/",end,":",f,"\n")
+  rstudiotools::displaymedia(f)
   
   output_text = COMFYUI(workflow,image=f)
   

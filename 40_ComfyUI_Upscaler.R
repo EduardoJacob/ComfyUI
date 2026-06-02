@@ -1,9 +1,6 @@
 
 
-source("ComfyUIfunctions.R")
-
-input_folder = "P:/temp"
-workflow = "./workflows/upscaler.json"
+input_folder = "P:/temp/images"
 files = list.files(input_folder,full.names=T)
 
 start = 1
@@ -15,7 +12,7 @@ for ( i in start:end ) {
   f = files[i] 
   cat("\nProcessing file",i,"/",end,":",f,"\n")
   
-  output_image = COMFYUI(workflow,image=f)
+  output_image = COMFYUI("./workflows/upscaler_image_image.json",image=f,scale=0.5)
   rstudiotools::displaymedia( file.path(comfyui_output_folder,output_image) )
 }
 

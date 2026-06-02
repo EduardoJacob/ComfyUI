@@ -24,7 +24,7 @@
   "95": {
     "inputs": {
       "upscale_method": "lanczos",
-      "scale_by": 2,
+      "scale_by": SCALE,
       "image": [
         "94",
         0

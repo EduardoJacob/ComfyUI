@@ -2,13 +2,13 @@
   "1": {
     "inputs": {
       "model_name": "Qwen3VL-8B-Instruct-Q8_0.gguf",
-      "preset_prompt": "🖼️ Detailed Description",
-      "custom_prompt": "",
+      "preset_prompt": "📹 Video Summary",
+      "custom_prompt": "PROMPT",
       "max_tokens": 1024,
       "keep_model_loaded": false,
       "seed": SEED,
-      "image": [
-        "3",
+      "video": [
+        "5",
         0
       ]
     },
@@ -29,13 +29,20 @@
       "title": "Preview as Text"
     }
   },
-  "3": {
+  "5": {
     "inputs": {
-      "image": "IMAGE"
+      "video": "VIDEO",
+      "force_rate": 0,
+      "custom_width": 0,
+      "custom_height": 0,
+      "frame_load_cap": 16,
+      "skip_first_frames": 0,
+      "select_every_nth": 20,
+      "format": "AnimateDiff"
     },
-    "class_type": "LoadImage",
+    "class_type": "VHS_LoadVideo",
     "_meta": {
-      "title": "Load Image"
+      "title": "Load Video (Upload) 🎥🅥🅗🅢"
     }
   }
 }

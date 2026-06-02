@@ -2,22 +2,47 @@
 comfyui_input_folder = "S:/ComfyUI/ComfyUI-Easy-Install/ComfyUI/input"
 comfyui_output_folder = "S:/ComfyUI/ComfyUI-Easy-Install/ComfyUI/output"
 
-COMFYUI = function(workflow,    # .json workflow file path
-                   prompt="",   # text prompt to inject into the workflow (optional)
-                   image=""     # input image file path to inject into the workflow (optional)
-) {
+
+COMFYUI = function(workflow,prompt="",image="",video="",second_image="",scale="",duration="") {
+ 
+  # Check the workflow signature and required inputs ----
+  library("zeallot")
+  c(workflows,models) %<-% COMFYUI_GET_MODELS()
+  
+  if ( workflow == "" ) stop("Please provide a workflow file path.")
+  workflow_name = tools::file_path_sans_ext(basename(workflow))
+  workflow_signature = workflows[workflows$workflow == workflow_name, ]
+  if ( nrow(workflow_signature) == 0 ) stop("Workflow not found.")
+  
+  valid_signature = TRUE
+  valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,"prompt",workflow_signature$prompt,prompt,valid_signature)
+  valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,"image",workflow_signature$image,image,valid_signature)
+  valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,"video",workflow_signature$video,video,valid_signature)
+  valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,"second_image",workflow_signature$second_image,second_image,valid_signature)
+  valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,"scale",workflow_signature$scale,scale,valid_signature)
+  valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,"duration",workflow_signature$duration,duration,valid_signature)
+  if ( !valid_signature ) {
+    workflow_signature = workflow_signature[ , -1] # Remove workflow column for signature display
+    signature = paste(names(workflow_signature)[unlist(workflow_signature)],collapse = ",")
+    signature = paste0("(", signature, ")")
+    cat("Workflow",workflow_name,"signature:",signature,"\n")
+    return()
+  }
   
   # Load and modify workflow ----
   comfy_url = "http://127.0.0.1:8188"
-  filename_prefix = tools::file_path_sans_ext(basename(workflow))
   
   workflow = readLines(workflow, encoding = "UTF-8", warn = FALSE)  
   
   for ( i in 1:length(workflow) ) {
+    workflow[i] = stringr::str_replace(workflow[i],"SECOND_IMAGE",second_image)
     workflow[i] = stringr::str_replace(workflow[i],"PROMPT",prompt)
     workflow[i] = stringr::str_replace(workflow[i],"IMAGE",image)
+    workflow[i] = stringr::str_replace(workflow[i],"VIDEO",video)
+    workflow[i] = stringr::str_replace(workflow[i],"SCALE",as.character(scale) )
+    workflow[i] = stringr::str_replace(workflow[i],"DURATION",as.character(duration) )
     
-    workflow[i] = stringr::str_replace(workflow[i],"FILENAME_PREFIX",filename_prefix) 
+    workflow[i] = stringr::str_replace(workflow[i],"FILENAME_PREFIX",workflow_name) 
     workflow[i] = stringr::str_replace(workflow[i],"SEED",as.character( sample(1000000,1)) )
   }
   
@@ -42,7 +67,7 @@ COMFYUI = function(workflow,    # .json workflow file path
   
   result = httr2::resp_body_json(response)
   prompt_id = result$prompt_id
-  cat("Workflow",filename_prefix,"submitted! Prompt ID:", prompt_id, "\n")
+  cat("Workflow",workflow_name,"submitted! Prompt ID:", prompt_id, "\n")
   cat("Waiting for generation to complete...\n")
   
   is_done = FALSE
@@ -77,14 +102,33 @@ COMFYUI = function(workflow,    # .json workflow file path
         purrr::flatten() |>                                    
         purrr::map_chr("filename")                              
       
+      output_video = node_outputs |>
+        purrr::map(~purrr::pluck(.x, "gifs", .default = list())) |> 
+        purrr::flatten() |>                                    
+        purrr::map_chr("filename")                              
+      
+      output_audio = node_outputs |>
+        purrr::map(~purrr::pluck(.x, "audio", .default = list())) |> 
+        purrr::flatten() |>                                    
+        purrr::map_chr("filename")                              
+      
       output_text = node_outputs |>
         purrr::map(~purrr::pluck(.x, "text", .default = character())) |>
         unlist(use.names = FALSE)                           
       
       if ( length(output_image) > 0 ) {
+        cat("Saved Image File:", output_image, "\n")
         output_data = output_image
-        cat("Saved Image Name:", output_data, "\n")
-      } else {
+      } 
+      if ( length(output_video) > 0 ) {
+        cat("Saved Video File:", output_video, "\n")
+        output_data = output_video
+      } 
+      if ( length(output_audio) > 0 ) {
+        cat("Saved Audio File:", output_audio, "\n")
+        output_data = output_audio
+      } 
+      if ( length(output_text) > 0 ) {
         cat("Output Text:\n", output_text, "\n")
         output_data = sub("\n.*", "",output_text)
       }
@@ -104,5 +148,98 @@ COMFYUI = function(workflow,    # .json workflow file path
 }
 
 
- 
+COMFYUI_CHECK_SIGNATURE = function(workflow_name,parameter_name,parameter_is_required,parameter_value,valid_signature) {
+  if ( parameter_is_required && parameter_value == "" ) {
+    cat("Workflow",workflow_name,"requires",parameter_name,"parameter.\n")
+    return(FALSE)
+  }
+  if ( !parameter_is_required && parameter_value != "" ) {
+    cat("Workflow",workflow_name,"doesn't requires",parameter_name,"parameter \n")
+    return(FALSE)
+  }
+  return(valid_signature)
+}
+
+
+COMFYUI_GET_MODELS = function() {
+  workflows.list = list.files("./workflows",pattern = "\\.json$",full.names = TRUE)
+   
+  workflows = data.frame(
+    workflow = character(),
+    prompt = logical(),
+    image = logical(),
+    video = logical(),
+    second_image = logical(),
+    scale = logical(),
+    duration = logical()
+  )
+  
+  models = data.frame(
+    workflow = character(),
+    model_type = character(),
+    model_name = character()
+  )
+  
+  for (f in workflows.list) {
+    txt = readLines(f, warn = FALSE)
+    
+    # Compute Workflows
+    workflow = tools::file_path_sans_ext(basename(f))
+    prompt = any(stringr::str_detect(txt, "PROMPT"))
+    image = any(stringr::str_detect(txt, "IMAGE"))
+    video = any(stringr::str_detect(txt, "VIDEO"))
+    second_image = any(stringr::str_detect(txt, "SECOND_IMAGE"))
+    scale = any(stringr::str_detect(txt, "SCALE"))
+    duration = any(stringr::str_detect(txt, "DURATION"))
+    
+    workflows = rbind(workflows,data.frame(workflow=workflow,
+                                           prompt=prompt,
+                                           image=image,
+                                           video=video,
+                                           second_image=second_image,
+                                           scale=scale,
+                                           duration=duration)) 
+    
+    # Compute Models
+    txt = txt[stringr::str_detect(txt, "\\.(safetensors|gguf|pth)")]
+    
+    if ( length(txt) == 0 ) txt = " dummy string to avoid empty loop and preserve prompt/image/video info"
+      
+    for (line in txt) {
+      model_type = stringr::str_match(line,'"([^"]+)"\\s*:')[,2]
+      model_name = stringr::str_match(line,'"([^"]+\\.(?:safetensors|gguf|pth))"')[,2]
+      
+      models = rbind(models,data.frame(workflow=workflow,model_type=model_type,model_name=model_name))
+    }
+  }
+  
+  return(list(workflows,models))
+  
+}
+
+
+COMFYUI_IMAGE_COMPARER = function(image="", second_image="") { 
+  
+  wf = jsonlite::fromJSON("./workflows/ImageComparer.json", simplifyVector = FALSE)
+  
+  wf[["nodes"]][[1]][["widgets_values"]][[1]] = image
+  wf[["nodes"]][[2]][["widgets_values"]][[1]] = second_image
+  
+  # json = jsonlite::toJSON(wf, auto_unbox = TRUE, pretty = FALSE)
+  json = jsonlite::toJSON(wf)
+  
+  utils::writeClipboard(json)
+  
+  utils::browseURL("http://127.0.0.1:8188")
+  
+  cat("Workflow copied to clipboard.\n")
+  cat("NOW click inside ComfyUI and press Ctrl+V (important).\n")
+}
+
+
+
+
+
+
+
 
