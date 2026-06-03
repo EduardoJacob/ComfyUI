@@ -1,0 +1,69 @@
+{
+  "8": {
+    "inputs": {
+      "filename_prefix": "FILENAME_PREFIX",
+      "quality": "320k",
+      "audioUI": "/api/view?filename=voice_00004_.mp3&type=output&subfolder=&rand=0.8283021382572482",
+      "audio": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "SaveAudioMP3",
+    "_meta": {
+      "title": "Save Audio (MP3)"
+    }
+  },
+  "14": {
+    "inputs": {
+      "target_text": "PROMPT",
+      "model_choice": "1.7B",
+      "device": "auto",
+      "precision": "bf16",
+      "language": "Portuguese",
+      "ref_text": "Nascido na Ribeira do Porto há 124 anos, foi batizado como Diocleciano Monteiro, mas ficou conhecido por Duque, nome determinado pela mãe, por \"ser mais fácil de dizer,\" enquanto o apelido da Ribeira ganhou-o \"das gentes do Porto\", pela sua presença constante junto ao rio e pelos salvamentos e resgastes que protagonizou durante mais de sete décadas, revelou Cândido Venceslau.",
+      "seed": SEED,
+      "max_new_tokens": 2048,
+      "top_p": 0.8,
+      "top_k": 20,
+      "temperature": 1,
+      "repetition_penalty": 1.05,
+      "x_vector_only": false,
+      "attention": "auto",
+      "unload_model_after_generate": true,
+      "custom_model_path": "",
+      "ref_audio": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "FB_Qwen3TTSVoiceClone",
+    "_meta": {
+      "title": "🎭 Qwen3-TTS VoiceClone"
+    }
+  },
+  "16": {
+    "inputs": {
+      "audio": "Eduardo.wav",
+      "audioUI": "/api/view?filename=Eduardo.wav&type=input&subfolder=&rand=0.5234506409930708"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "1. Load Voice Sample (10–20s)"
+    }
+  },
+  "19": {
+    "inputs": {
+      "purge_cache": true,
+      "purge_models": true,
+      "anything": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: PurgeVRAM V2",
+    "_meta": {
+      "title": "LayerUtility: Purge VRAM V2"
+    }
+  }
+}

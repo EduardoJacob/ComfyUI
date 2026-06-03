@@ -13,16 +13,17 @@ COMFYUI = function(workflow,prompt="",image="",video="",second_image="",scale=""
   workflow_name = tools::file_path_sans_ext(basename(workflow))
   workflow_signature = workflows[workflows$workflow == workflow_name, ]
   if ( nrow(workflow_signature) == 0 ) stop("Workflow not found.")
+  workflow_signature = workflow_signature[ , -1] # Remove workflow column for signature display
   
   valid_signature = TRUE
-  valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,"prompt",workflow_signature$prompt,prompt,valid_signature)
-  valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,"image",workflow_signature$image,image,valid_signature)
-  valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,"video",workflow_signature$video,video,valid_signature)
-  valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,"second_image",workflow_signature$second_image,second_image,valid_signature)
-  valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,"scale",workflow_signature$scale,scale,valid_signature)
-  valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,"duration",workflow_signature$duration,duration,valid_signature)
+  for ( parameter_name in names(workflow_signature) ) {
+    parameter_is_required = workflow_signature[[parameter_name]]
+    parameter_value = get(parameter_name)
+    valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,parameter_name,
+      parameter_is_required,parameter_value,valid_signature)
+  }
+  
   if ( !valid_signature ) {
-    workflow_signature = workflow_signature[ , -1] # Remove workflow column for signature display
     signature = paste(names(workflow_signature)[unlist(workflow_signature)],collapse = ",")
     signature = paste0("(", signature, ")")
     cat("Workflow",workflow_name,"signature:",signature,"\n")

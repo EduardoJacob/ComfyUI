@@ -27,6 +27,8 @@ usethis::use_readme_rmd()
 
 usethis::browse_github()
 
+usethis::use_git_ignore("voices")
+
 
 # Start LM Studio if needed (if terminal already in use, close terminal panel and run again)
 # terminal_id = rstudiotools::terminal(".\\StartLMstudio.ps1",caption="Claude")
@@ -81,8 +83,13 @@ c(workflows,models) %<-% COMFYUI_GET_MODELS()
 
 # rstudiotools::terminal("huggingface-cli login")
 
-
-
+# Install models from WSL
+# wsl -d Ubuntu
+# cd ~
+# source ~/hf_env/bin/activate
+# hf auth login
+# hf download Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign
+# (hf_env) eduar@EDUARDO-PC:~$ cp -r ~/.cache/huggingface/hub/models--Qwen--Qwen3-TTS-12Hz-1.7B-VoiceDesign /mnt/s/ComfyUI/ComfyUI-Easy-Install/ComfyUI/models/qwen-tts/
 
 
 
