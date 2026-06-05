@@ -1,10 +1,7 @@
 
-
-source("ComfyUIfunctions.R")
-
-input_folder = "P:/temp"
+ 
 workflow = "./workflows/QwenVL3_image_text.json"
-files = list.files(input_folder,full.names=T)
+files = list.files(comfyui_input_folder,full.names=T)
 
 start = 1
 end = length(files)

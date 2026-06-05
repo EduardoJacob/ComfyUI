@@ -6,7 +6,7 @@ rstudiotools::displaymedia(image)
 
 prompt = "The man takes off his glasses with his hand"
   
-video = COMFYUI("./workflows/wan_image_video.json",prompt=prompt,image=image)
+video = COMFYUI("./workflows/wan_image_video.json",prompt=prompt,image=image,duration = 2)
 video = file.path(comfyui_output_folder,video)
 rstudiotools::displaymedia(video)
 

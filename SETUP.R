@@ -31,9 +31,9 @@ usethis::use_git_ignore("voices")
 
 
 # Start LM Studio if needed (if terminal already in use, close terminal panel and run again)
-# terminal_id = rstudiotools::terminal(".\\StartLMstudio.ps1",caption="Claude")
+terminal_id = rstudiotools::terminal("./powershell/LMstudioStart.ps1",caption="Claude")
 # Start Claude Code if needed
-# terminal_id = rstudiotools::terminal("claude --model qwen/qwen3.5-9b",terminal_id = terminal_id)
+terminal_id = rstudiotools::terminal("claude --model qwen/qwen3.5-9b",terminal_id = terminal_id)
 
 # prompt = "Review the project and update claude.md to reflect the current architecture and recent changes."
 # terminal_id = rstudiotools::terminal(prompt, terminal_id = terminal_id)
@@ -90,6 +90,17 @@ c(workflows,models) %<-% COMFYUI_GET_MODELS()
 # hf auth login
 # hf download Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign
 # (hf_env) eduar@EDUARDO-PC:~$ cp -r ~/.cache/huggingface/hub/models--Qwen--Qwen3-TTS-12Hz-1.7B-VoiceDesign /mnt/s/ComfyUI/ComfyUI-Easy-Install/ComfyUI/models/qwen-tts/
+
+
+
+
+
+
+
+
+
+
+
 
 
 

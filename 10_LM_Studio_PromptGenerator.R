@@ -1,8 +1,5 @@
 
 
-source("ComfyUIfunctions.R")
-
-
 prompt = "Give me a text Prompt, optimized for z-image-turbo model, in order to generate an image like the one attached. Give me only the text, not the image. Summarize the text with no more then 100 words"
 input_folder = "P:/DISKD/Wallpapers"
 output_file = "./prompts/Prompts.txt"
@@ -22,7 +19,7 @@ start = 1
 end = length(files)
 
 start = 10
-end = 12
+end = 11
 
 for (i in start:end ) {
   f = files[i] 

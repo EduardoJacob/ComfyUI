@@ -18,14 +18,14 @@ COMFYUI = function(workflow,prompt="",image="",video="",second_image="",scale=""
   valid_signature = TRUE
   for ( parameter_name in names(workflow_signature) ) {
     parameter_is_required = workflow_signature[[parameter_name]]
+    # parameter_value = if (exists(parameter_name, inherits = FALSE)) get(parameter_name, inherits = FALSE) else NULL
     parameter_value = get(parameter_name)
-    valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,parameter_name,
-      parameter_is_required,parameter_value,valid_signature)
+    valid_signature = COMFYUI_CHECK_SIGNATURE(workflow_name,parameter_name,parameter_is_required,parameter_value,valid_signature)
   }
   
   if ( !valid_signature ) {
     signature = paste(names(workflow_signature)[unlist(workflow_signature)],collapse = ",")
-    signature = paste0("(", signature, ")")
+    signature = paste0("(workflow,", signature, ")")
     cat("Workflow",workflow_name,"signature:",signature,"\n")
     return()
   }
@@ -150,12 +150,16 @@ COMFYUI = function(workflow,prompt="",image="",video="",second_image="",scale=""
 
 
 COMFYUI_CHECK_SIGNATURE = function(workflow_name,parameter_name,parameter_is_required,parameter_value,valid_signature) {
+  if (!is.character(parameter_value) && !is.numeric(parameter_value)) {
+    cat("Invalid Type or missing value for",parameter_name,"\n")
+    return(FALSE)
+  }
   if ( parameter_is_required && parameter_value == "" ) {
-    cat("Workflow",workflow_name,"requires",parameter_name,"parameter.\n")
+    cat("Workflow",workflow_name,"requires",parameter_name,"\n")
     return(FALSE)
   }
   if ( !parameter_is_required && parameter_value != "" ) {
-    cat("Workflow",workflow_name,"doesn't requires",parameter_name,"parameter \n")
+    cat("Workflow",workflow_name,"doesn't requires",parameter_name,"\n")
     return(FALSE)
   }
   return(valid_signature)

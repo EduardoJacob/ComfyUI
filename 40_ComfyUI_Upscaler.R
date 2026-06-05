@@ -18,3 +18,11 @@ for ( i in start:end ) {
 
 shell.exec(comfyui_output_folder)
 
+
+image = file.path(comfyui_input_folder,"ZIT__00004_.png") 
+rstudiotools::displaymedia(image )
+image = COMFYUI(workflow="./workflows/upscaler_image_image.json",image=image,scale="0.5")
+rstudiotools::displaymedia( file.path(comfyui_output_folder,image) )
+
+
+

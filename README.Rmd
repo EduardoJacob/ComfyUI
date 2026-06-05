@@ -17,32 +17,109 @@ https://www.youtube.com/playlist?list=PLRbCt61PaxX2d0_QXh6Qi6_jAQd66fmcI
 
 ---
 
-# ComfyUI and LM Studio Integration Scripts
 
-This suite of R scripts provides a robust framework for automating image generation, analysis, and enhancement workflows by integrating **ComfyUI** and **LM Studio**. By leveraging R for task management, users can programmatically chain together complex AI pipelines, including recursive generation, upscaling, and prompt engineering.
+## Architecture
 
-## Main Script: `ComfyUIfunctions.R`
+### Core Files
 
-This is the core utility script that serves as the engine for all other operations. It defines the communication protocol between the R environment and local AI services, managing workflow execution, image processing, and history tracking.
+- **`ComfyUIfunctions.R`** - The core utility script defining all communication protocols with the ComfyUI API. Contains:
+  - `COMFYUI()` - Main function that submits workflows to ComfyUI via HTTP API
+  - `COMFYUI_CHECK_SIGNATURE()` - Validates workflow parameters
+  - `COMFYUI_GET_MODELS()` - Scans workflows folder and extracts model metadata
+  - `COMFYUI_IMAGE_COMPARER()` - Helper for image comparison workflows
 
-### Defined Functions
+- **`SETUP.R`** - Initialization script that:
+  - Installs required packages (`howler`, `minifunctions`, `rstudiotools`, `aitools`, `xfunctions`)
+  - Starts LM Studio and Claude Code terminals via PowerShell
+  - Sources `ComfyUIfunctions.R` to load functions
+  - Calls `COMFYUI_GET_MODELS()` to build workflow/model inventory
 
-* **`COMFYUI(workflow, prompt = "", image = "")`**
-This function acts as the bridge to the ComfyUI API. It takes a JSON workflow file, optionally injects a text prompt or input image path, and handles the submission of the job to the ComfyUI server. It includes a polling mechanism that monitors the `/history` endpoint, waiting for the generation process to complete before returning the resulting filename or generated text output.
+### Workflow Execution Scripts (numbered by execution order)
 
-## Workflow Execution Scripts
+| Script | Purpose |
+|--------|---------|
+| `10_LM_Studio_PromptGenerator.R` | Generates text prompts from images via LM Studio |
+| `15_ComfyUI_PromptGenerator.R` | Image captioning/analysis using ComfyUI (QwenVL3 workflow) |
+| `20_LM_Studio_RecursiveGenerator.R` | Alternates LM Studio description → ComfyUI generation iteratively |
+| `25_ComfyUI_RecursiveGenerator.R` | Pure image-to-image recursive ComfyUI workflow |
+| `30_ComfyUI_MassGenerator.R` | Batch generation from prompt list file |
+| `40_ComfyUI_Upscaler.R` | Batch upscaling via dedicated ComfyUI workflow |
+| `50_ComfyUI_PromptEnhancer.R` | Text-to-text prompt refinement → text-to-image generation |
+| `60_ComfyUI_Wan_Video.R` | Video generation using Wan model |
+| `70_ComfyUI_TTS.R` | Text-to-speech using Qwen3-TTS |
+| `72_ComfyUI_VoiceCloning.R` | Voice cloning workflow |
+| `80_ComfyUI_RemoveBackground.R` | Background removal (new) |
+| `82_ComfyUI_ExtractObject.R` | Object extraction (new) |
 
-* **`10_LM_Studio_PromptGenerator.R`**
-Automates the generation of text prompts based on existing images. It iterates through a folder of JPEGs, displays the images in RStudio, and sends them to a local LM Studio model to produce optimized, summarized text prompts. These prompts are then saved to a file for later use in generation tasks.
-* **`15_ComfyUI_PromptGenerator.R`**
-Facilitates automated image captioning or analysis. It processes a folder of images through a specific ComfyUI workflow (defined by `QwenVL3.json`) to generate textual descriptions or analysis output, automatically launching the output folder once complete.
-* **`20_LM_Studio_RecursiveGenerator.R`**
-Implements a recursive feedback loop. It alternates between using LM Studio to describe an existing image and feeding that description into a ComfyUI workflow to generate a new, modified version of that image. This process repeats for a set number of iterations to evolve images iteratively.
-* **`25_ComfyUI_RecursiveGenerator.R`**
-A purely image-to-image recursive workflow. It uses a primary ComfyUI workflow to generate a prompt from an image, then immediately uses that prompt in a second workflow to create a new image. This process iterates, allowing the generated image to serve as the source for the next generation cycle.
-* **`30_ComfyUI_MassGenerator.R`**
-Designed for batch generation. It reads a list of text prompts from a file and runs them through a specified ComfyUI workflow to mass-produce images. This script is highly configurable, allowing users to select different workflows and control the volume of images generated per prompt.
-* **`40_ComfyUI_Upscaler.R`**
-Handles batch upscaling of images. It iterates through an input folder, processes each image through a dedicated upscaling ComfyUI workflow, and displays the high-resolution results within the RStudio interface.
-* **`50_ComfyUI_PromptEnhancer.R`**
-Demonstrates prompt engineering workflows. It utilizes a text-to-text workflow to refine user input into complex image generation prompts, which are then passed to a text-to-image workflow to produce the final visual result.
+### Workflows Directory
+
+Contains JSON workflow definitions for ComfyUI:
+- Text-to-image: `flux_text_image.json`, `zit_text_image.json`, `nunchakuZIT_text_image.json`
+- Image-to-image/upscaling: `flux2x_text_image.json`, `upscaler_image_image.json`, `upscaler4x_NMKD_image_image.json`
+- Vision models: `QwenVL3_*` variants (image/text/video)
+- TTS/Voice: `qwen3tts_*` variants
+- Video: `wan_image_video.json`
+- Utilities: `ImageComparer.json`, `remove_background.json`, `extract_object.json`
+
+## Development Workflow
+
+### Running Scripts
+
+```r
+# Source setup (first time or after package changes)
+source("SETUP.R")
+
+# Run a specific workflow script
+source("30_ComfyUI_MassGenerator.R")
+```
+
+### COMFYUI Function Usage
+
+```r
+# Basic text-to-image
+COMFYUI(workflow = "workflows/flux_text_image.json", prompt = "a cat")
+
+# Image-to-image with input image
+COMFYUI(workflow = "workflows/flux2x_text_image.json", 
+        image = "S:/ComfyUI/input/image.png", 
+        prompt = "enhanced version")
+
+# Video generation
+COMFYUI(workflow = "workflows/wan_image_video.json", 
+        video = "", duration = "5s")
+
+# TTS
+COMFYUI(workflow = "workflows/qwen3tts_text_speech.json", 
+        prompt = "Hello world")
+```
+
+### Workflow Signature Validation
+
+Each workflow has a defined signature (required parameters). The `COMFYUI()` function validates:
+- Required parameters are provided
+- Optional parameters aren't passed when not needed
+- Returns informative error messages with expected signature
+
+## Key Packages
+
+Core packages used:
+- `zeallot` - Multiple assignment (destructuring)
+- `stringr` / `stringr::str_replace` - String manipulation
+- `jsonlite` - JSON parsing/generation for API payloads
+- `httr2` - HTTP requests to ComfyUI API
+- `tools` - File path utilities
+- `uuid` - UUID generation for prompt IDs
+- `purrr` / `magrittr` (`%>%`) - Functional programming
+- `rstudiotools` - RStudio terminal management
+- `aitools` / `xfunctions` / `minifunctions` - Custom utility packages
+
+## Configuration
+
+Paths defined in `ComfyUIfunctions.R`:
+```r
+comfyui_input_folder = "S:/ComfyUI/ComfyUI-Easy-Install/ComfyUI/input"
+comfyui_output_folder = "S:/ComfyUI/ComfyUI-Easy-Install/ComfyUI/output"
+```
+
+ComfyUI server URL (default): `http://127.0.0.1:8188`
+

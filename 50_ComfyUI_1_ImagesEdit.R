@@ -1,4 +1,6 @@
 
+# Image Editing from one image
+
 
 prompt = COMFYUI(workflow="./workflows/QwenVL3_text_text.json")
 prompt = COMFYUI(workflow="./workflows/QwenVL3_text_text.json",prompt="Qual a capital da China ?")
@@ -19,7 +21,7 @@ rstudiotools::displaymedia( file.path(comfyui_output_folder,image) )
 
 # Image Edit 1
 full_image = file.path(comfyui_output_folder,image)
-prompt = "Remove all the balls from the background"
+prompt = "Change the color of the dog to brown"
 image = COMFYUI(workflow="./workflows/flux9b_image_image.json",prompt=prompt,image=full_image)
 rstudiotools::displaymedia( file.path(comfyui_output_folder,image) )
 

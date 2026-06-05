@@ -1,5 +1,5 @@
 
-
+# Image Editing from two images
 
 
 image1 = file.path(comfyui_input_folder,"Flowers.jpg")
