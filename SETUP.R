@@ -61,45 +61,21 @@ pak::pak("eduardojacob/aitools")
 pak::pak("eduardojacob/xfunctions")
 pak::pak("eduardojacob/minifunctions")
 
-pkgbuild::check_build_tools(debug = TRUE)
-
 devtools::install_github("eduardojacob/rstudiotools", build_vignettes = TRUE, dependencies = TRUE)
 devtools::install_github("eduardojacob/aitools", build_vignettes = TRUE, dependencies = TRUE)
 devtools::install_github("eduardojacob/xfunctions", build_vignettes = TRUE, dependencies = TRUE)
 devtools::install_github("eduardojacob/minifunctions", build_vignettes = TRUE, dependencies = TRUE)
 
 minifunctions::imagegrid("P:/DISKD/Youtube R Programming/AppLogos")
-
-rstudiotools::setcwd("./screenshots")
-rstudiotools::displaymedia()
-rstudiotools::setcwd()
-
+ 
+rstudiotools::displaymedia("./screenshots")
+ 
 source("ComfyUIfunctions.R")
 
 # Make an inventory of models used in workflows
 # Using zeallot package for multiple assignment (unpacking) , aka destructuring assignment in other languages
 library("zeallot")
-c(workflows,models) %<-% COMFYUI_GET_MODELS()
-
-# rstudiotools::terminal("huggingface-cli login")
-
-# Install models from WSL
-# wsl -d Ubuntu
-# cd ~
-# source ~/hf_env/bin/activate
-# hf auth login
-# hf download Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign
-# (hf_env) eduar@EDUARDO-PC:~$ cp -r ~/.cache/huggingface/hub/models--Qwen--Qwen3-TTS-12Hz-1.7B-VoiceDesign /mnt/s/ComfyUI/ComfyUI-Easy-Install/ComfyUI/models/qwen-tts/
-
-
-
-
-
-
-
-
-
-
+c(workflows,models,nodes) %<-% COMFYUI_GET_MODELS()
 
 
 

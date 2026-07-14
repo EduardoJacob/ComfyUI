@@ -1,0 +1,790 @@
+Vocês já tiveram a oportunidade de aceder à plataforma,
+terem feito também alguns testes.
+Mas deixamos por bem marcar esta historinha para também fazermos uma breve apresentação da plataforma.
+Vocês conseguirem também tirar algumas dúvidas ou questões que tenham tido,
+tanto nos testes que fizeram ou então na própria plataforma,
+ao verem aceder aos concursos,
+às parametrizações.
+Bem,
+a plataforma é um bocado extensa,
+por isso,
+por uma questão de lógica,
+nós ao prepararmos e ao abordarmos esta reunião optamos por passar alguns pontos à frente.
+Pontos esses que são,
+para nós,
+considerados de fácil.
+.
+.
+.
+.
+.
+como por exemplo,
+a criação do concurso.
+.
+.
+Boa tarde,
+Sânia.
+Muito bem,
+então nós iremos mostrar-vos de uma forma geral o funcionamento da plataforma e para vocês também ficarem com o entendimento do fluxo,
+aquilo que a plataforma faz na fase de procedimento concursal e da avaliação contínua.
+Posso apresentar o meu ecrã.
+Como vocês sabem,
+a plataforma tem dois momentos diferentes,
+por assim dizer.
+Tem duas,
+como se fossem duas regras diferentes,
+como isto eu quero dizer o que é.
+Nós temos o Rec Office,
+onde acede os orientadores,
+os administradores da ACSS,
+etc.
+E temos o front-end,
+que é para os candidatos e para os residentes farmacêuticos.
+São dois ecrãs distintos,
+que têm duas aparências,
+por assim dizer,
+dois layoutos também diferentes.
+Vou começar por vos mostrar o back office e depois passamos para o portal das candidaturas.
+os meus dados de acesso E vou entrar então na plataforma.
+Muito bem,
+então vamos iniciar a demonstração para demonstrar-vos como é que é o ciclo completo de um procedimento de concursos.
+Como vocês já tiveram a oportunidade de ver,
+o ECRET concursos tem uma listagem onde vocês conseguem ver aqueles concursos que estão neste momento visíveis,
+mas também os que já não estão visíveis e os por assim dizer históricos.
+Temos então aqui a nossa numeração,
+a nossa fecha de notação.
+Mas isto é a água do.
+.
+.
+Eu peço com você,
+já que você não tem.
+ok eu posso apenas beber isso É necessário preencher todos os campos que estão marcados como então obrigatórios.
+Eu vou entrar aqui num concurso que eu e o Tiago criamos.
+para a reunião de hoje.
+para vos mostrar que,
+após vocês preencherem os dados gerais,
+Para conseguir,
+é necessário preencher aqui o mapa.
+Para preencher aqui o mapa de vacas,
+há opções de inserir manualmente um por um ou então importar através de um Excel toda esta informação.
+Aqui criamos então uma série delas em diferentes estabelecimentos.
+Para escolher aqui os estabelecimentos onde eu quero inserir estas vacas,
+é necessário que ele já esteja previamente registado na plataforma e se faça onde? Nas parametrizações.
+Tem sempre de haver este trabalho.
+Já tem de estar registado o estabelecimento que eu consegui escolher.
+De seguida,
+quando as datas.
+.
+.
+de candidatura estiverem abertas,
+por assim dizer,
+mas é possível receber as candidaturas e quem está no back office vai conseguir visualizar através então da lista de candidaturas.
+Há datas que têm de ser então respeitadas e só no momento da abertura dessas datas,
+ou melhor dizendo,
+da iniciação dessas datas,
+é que é possível fazer então na aplicação certas funcionalidades e ter certos acessos até a botões e funcionalidade.
+Por exemplo,
+há uma data de candidatura e depois também há datas de prova e há depois uma data de ordenação.
+Isto é tudo preenchido nos dados gerais do concurso.
+Por isso,
+se vocês estiverem a fazer testes na plataforma e não conseguirem,
+por exemplo,
+ainda ordenar,
+Se vocês virem aqui as datas e tiverem para agosto,
+é normal terem esses delays e estarem bloqueados a fazer estas ações.
+Uma nota para quando vocês também fizerem aqui alguns testes.
+Nós então vamos recepcionar aqui as candidaturas,
+como eu disse,
+de acordo com o período definido.
+Vai haver então análise das candidaturas.
+Posso clicar aqui em Alberto Zopa e vejo então os seus dados.
+No momento da candidatura eu tenho a opção para admitir a candidatura ou para não admitir.
+Consigo ver os dados de preenchimento.
+Posso ainda fazer pedidos de informação.
+Imaginem que o Alberto tinha-se encanado a anexar algo com comprovativo.
+tinha anexado o comprovativo de NIF duas vezes.
+Posso fazer também pedidos de informação para enviar a versão correta.
+Aqui eu vou me pedir,
+por exemplo,
+de um certificado de habilitações.
+O Alberto também em vários momentos de acordo com o BPMN,
+que foi mostrado na documentação.
+os residentes e os candidatos podem fazer reclamações ou recursos e também é visível ver na sua ficha,
+por assim dizer,
+se fez ou não.
+e aqui ter acesso então às opções do Alberto.
+Os vídeos para a Ana Freire.
+e para o António.
+Então,
+depois de criar o concurso,
+depois de preencher o mapa de vagas,
+depois de receber as candidaturas,
+vai para a análise,
+como eu disse,
+podem ser admitidos ou podem não ser.
+Os que foram admitidos passam então a provas para também serem ordenadas as suas vagas.
+Os candidatos admitidos vão ter uma prova de admissão Vamos ter aqui também as suas datas e horas estipuladas,
+E depois vão ter a sua nota de prova.
+Vai ter importância para saber qual vai ser a ordenação dos candidatos.
+Imaginem aqui na ordenação das candidaturas.
+Eu tenho a classificação final e a classificação da prova.
+Consigo ver aqui então que o António teve 19,
+a Ana Ferreira teve 10 e o Alberto Sopa teve aqui 16.
+consigo depois com estas informações ordenar os candidatos pela nota e pelo estabelecimento e área de especialidade que escolherem.
+Nós aqui só temos três dissentos.
+É então difícil perceber o impacto que isto tem.
+Mas num concurso com centenas de candidatos,
+Quem tem uma nota mais alta vai ter prioridade a escolher então qual é aquele estabelecimento e hora de especialidade que pretende ingressar,
+qual é a vaga que pretende ingressar.
+É parecido com o acesso ao ensino superior.
+Então,
+os candidatos vão ser ordenados.
+aqui também pela sua nota.
+E depois vai haver então aqui a secção da colocação dos candidatos,
+que é,
+depois deles serem ordenados pela nota de prova,
+nós temos aqui um ecrã que diz onde ficou cada um deles.
+Eu sei que o António ficou então no Porto,
+em Santo Tirso,
+na Trofa,
+o Alberto também,
+e a Ana Ferreira ficou em Famalicão.
+Há então aqui uma ordenação dos candidatos,
+pela vaga,
+pelo estabelecimento e pela área de especialidade que escolheram.
+Isto é sobre então o concurso,
+como é que o concurso se organiza.
+Penso que falei de todos os pontos.
+Tiago,
+acho que me esqueci de algum.
+Não,
+só mencionar aqui do ponto de vista,
+se calhar um pouco fora da aplicação em si,
+existe um timer que corre de 5 em 5 minutos,
+que está agendado em Service Center,
+mas ele corre de 5 em 5 minutos que vai atualizar todas as candidaturas que foram admitidas e passa para o estágio a seguir.
+Ou seja,
+às vezes demora um bocadinho a atualizar algum estado por esse timer mesmo.
+em testes que fizerem depois,
+vão verificar isso.
+Porque às vezes querem passar por um ponto,
+não sabem como,
+porque existem timers que ficam à espera para correr.
+tudo ok.
+Pronto.
+Tendo então o concurso finalizado Vou aqui aos programas.
+O programa que nós criamos da residência farmacêutica Muito bem.
+Aqui então no programa de residência farmacêutica,
+quando o concurso está concluído,
+quando nós ordenamos os candidatos,
+podemos criar o nosso programa.
+Através do botão novo programa.
+Já tenho aqui um criado.
+Associamos o concurso.
+Isto faz com que as informações venham do concurso até ao programa,
+quais é que são aqui os nossos candidatos.
+Podemos alterar o estado do candidato,
+se está a frequentar,
+se adiou,
+se suspendeu ou se desistiu.
+ao clicar aqui no candidato.
+Eu tenho informação sobre o mesmo,
+se ele foi transferido ou se foi emigrado.
+e tenho então a avaliação Continua.
+Vou aqui ao programa de formação porque há aqui alguns pontos que eu vos queria dar uma breve explicação.
+O programa de formação tem um orientador associado,
+neste caso nós escolhemos o Bruno Machado.
+Para ter aqui uma lista de orientadores que nós podemos escolher,
+Quais é que são aqui as condições que têm de existir? Eu vou só aqui abrir.
+uma nova página para não perder onde estou.
+Aqui eu vou aos utilizadores.
+E nós temos então o Bruno Machado.
+Os orientadores que nós escolhermos têm de estar neste estabelecimento de outros serviços de saúde.
+De sermo de cão.
+E tem de ter área de especialidade farmácia hospitalar.
+Então eu vou aqui a um utilizador que seja,
+vim aqui aos perfis utilizadores,
+e vou a um que seja orientador.
+Vou aqui ao ensaio para hoje.
+E ele tem de estar,
+então,
+num estabelecimento de fama licão.
+o malicão a ver se encontra mais rápido Essa que era esta.
+e tem de estar na área de especialidade para mais hospitalar,
+porque já está Vou dar um refresh à página.
+E já tenho aqui,
+então,
+o Bruno Machado e o Isaac.
+Este é o comportamento que tem de haver,
+tem de existir para conseguir escolher o orientador.
+Tem de estar com o perfil de orientador e ter estas condições,
+top de cimento e área de especialidade.
+Aqui nós temos em baixo o programa de formação.
+para também ter aqui toda esta informação para vocês conseguirem manipular a informação que aqui aparece é a mesma lógica peço desculpa que só vou aqui abrir um outro ecrã para não perder informação Vou às parametrizações e desta vez vou escolher Valências barra estágios barra período de formação.
+E tenho aqui todas as valências.
+Ora organizar,
+pela farmácia hospitalar,
+organizei aqui pelos pontos.
+E tenho aqui então toda a informação que é apresentada.
+É apresentada se estiver marcada como ativa.
+A que está marcada como obrigatória,
+está nesta segunda coluna.
+Ao adicionar aqui as valências,
+as mesmas também irão aparecer aqui no programa de formação.
+E posso escolher aqui qual é que é o seu responsável.
+Porquê? Porque nós podemos ter um orientador do programa em geral.
+Mas depois,
+para cada componente,
+para cada valência,
+ter um responsável diferente.
+É como na faculdade,
+quando há o diretor do curso e depois para cada cadeira nós temos um professor,
+é com mais ou menos esta lógica para ser perceptível.
+Pode ser o mesmo,
+ou um machado,
+ou para alguma valência,
+Posso colocar aqui o Isaac.
+penso que passei pelos pontos que são principais para vocês também conseguirem fazer os vossos Vamos gravar,
+você que quer passar E aqui nós temos.
+.
+.
+Eu tinha a mão no ar.
+Ah,
+desculpa.
+Sim,
+Susana,
+era eu.
+Era só para dar um pequeno a parte,
+nessa parte das valências que a Susana explicou aí muito bem.
+Existe um critério que é o obrigatório também,
+que às vezes,
+quando estão nas valências,
+nas parametrizações,
+uns estão checados,
+outros não.
+O que é que isto permite? Os que não estão checados como obrigatório podem ser eliminados do programa.
+Porque podem ser componentes.
+que não são para este programa.
+Por exemplo,
+se for usar o programa.
+.
+.
+tens lá o Radiofarmácia e Epidemiologia,
+e se dezes scroll para o lado,
+estes têm possibilidade de ser removidos,
+porque não são mandatórios neste caso,
+são opcionais.
+Pronto,
+era só esse pequeno aparte.
+E há também mais um pequeno detalhe,
+que é esta lista é preenchida também automaticamente com as valências obrigatórias.
+Na criação do programa de formação.
+Bem,
+acho que é isso deste ecrã.
+As que estão marcadas como obrigatórias estão aqui com um certinho.
+Como vocês veem,
+não é possível remover.
+As que são opcionais,
+essas sim,
+já são possíveis de remover da listagem.
+Agora,
+é simples.
+O arco é W7 com 5.
+Este ecrã é onde os orientadores Conseguem então colocar as notas dos seus residentes.
+Estes componentes são previamente.
+.
+.
+registados na plataforma.
+Vou-vos então mostrar.
+Nas parametrizações,
+nós temos aqui parâmetros de avaliação de desempenho e componentes de avaliação de conhecimentos.
+Nos parâmetros de avaliação de desempenho,
+onde eu cliquei,
+Nós temos aqui uma área onde nós podemos adicionar componentes.
+Podemos também remover.
+ou podemos alterar as ponderações.
+Primeiro,
+posso organizar pela área de especialidade,
+para saber quais são as análises clínicas e quais são as de farmácia.
+Tenho aqui os três parâmetros que nós temos aqui na avaliação contínua.
+E posso clicar em cada um deles e editar.
+Rita,
+sim.
+Peço desculpa,
+tenho aqui uma portal.
+Esse ecrã de parâmetros de avaliação de desempenho é relativo apenas à avaliação contínua,
+certo? Porque também existe um ecrã que é a parametrização da avaliação final,
+ou seja,
+isso vai ser um ecrã diferente,
+isto é para a avaliação contínua,
+isto é para a avaliação final,
+certo? Exatamente,
+isto aqui é só para a avaliação contínua.
+A avaliação final,
+como ainda não foi desenvolvida,
+isto já vai ser uma parte que já vão ser vocês a desenvolver,
+porque a parte da avaliação final não está aqui a ser mostrada,
+é só a avaliação contínua.
+Estava a tentar perceber se era relativo aos dois ou se era só da avaliação contínua.
+Ok,
+obrigada.
+Bem,
+então aqui nós conseguimos mudar,
+modificar os dados que estão a ser apresentados,
+ok? sempre que tiver uma questão vão alertando,
+porque acho que é mais fácil vocês tirarem as vossas dúvidas para perceberem na totalidade a plataforma,
+do que depois no final,
+voltar atrás,
+quando tiverem alguma questão,
+como a Rita fez agora,
+vão alertando.
+Aqui então no parâmetro eu consigo editar o seu valor máximo,
+isto é,
+há componentes que não são avaliadas de 0 a 20,
+são avaliadas de 0 a 5 ou de 0 a 4,
+então posso aqui mudar qual é que é o seu valor máximo,
+a sua ponderação,
+a área e uma descrição.
+Esta informação é toda mostrada,
+então,
+nesta ecrã da avaliação contínua,
+se vocês repararem,
+a avaliação de desempenho é toda feita para valer 100%,
+isto não é por avaliação de desempenho ter valer 60%,
+peço desculpa,
+que nós fazemos as contas para dar esses 60%,
+não,
+é para 100%.
+Damos aqui então as nossas notas,
+teve 12 no exercício e responsabilidade,
+teve 15 no empenho,
+na promoção científica,
+e teve 10 na capacidade de execução técnica,
+isto deu um total de 12,
+36 valores,
+E na avaliação de conhecimento,
+como eu vou vos passar a mostrar,
+a avaliação de conhecimento,
+só tenho aqui então uma componente para a farmácia hospitalar.
+Quando não tem valor na ponderação,
+Nós estamos a considerar que vale 100%.
+Ok? Por isso,
+não ter valor aqui não ter nada,
+ter o zero,
+é como se o valor desse cego.
+Não é necessário ter lá o 100%.
+Então ele teve 10,
+o que deu um total de 11 valores,
+ok? Uma vez que a avaliação de desempenho vale 60% e a avaliação de conhecimentos vale 40%.
+11 valores porquê? Porque a nota final da avaliação contínua é um número inteiro.
+Por isso,
+se vocês fizerem a conta manualmente,
+ia dar 11,
+41.
+Mas é pedido pela CSS que a nota final seja um valor inteiro,
+por isso é que nós arredondamos para 11.
+E então,
+ela está.
+.
+.
+assim unidade por isso é que ele está marcando aqui como apto se ele tivesse um valor inferior a 10 seria como não apto Depois,
+então aqui é a avaliação contínua,
+é onde fica.
+De quando a avaliação é finalizada,
+o orientador faz então finalizar a avaliação.
+E a componente da avaliação final,
+que está aqui só o e-credo,
+mostrar o que vai haver,
+mas que essa parte ainda não foi desenvolvida.
+É,
+agora com a Noice.
+Então,
+a inovação desempenha essas porcentagens de 33%,
+34% e 33%.
+é ponderação interna dessas três linhas,
+é isso? Sim,
+internamente.
+Isto aqui,
+atenção,
+são valores de teste.
+Só para vocês saberem que não são valores reais da ACSS.
+Mas a lógica é a seguinte,
+é a acessiência considera que determinados parâmetros têm uma X ponderação.
+E eles dão para cada uma destas linhas a sua devida ponderação.
+Podia ser 20,
+20,
+60.
+Quando não tem nenhum valor,
+como eu tinha dito,
+vale 100.
+Ok? Depois,
+estas ponderações,
+o somatório delas tem de dar 100%.
+Enquanto aqui que se faz é esse 100% depois só 60 é que conta para a nota final.
+Certo.
+E esses 1236,
+que são os resultados,
+Então é um resultado da média ponderada,
+depois dessas porcentagens e não da média aritmética,
+que dá 12,
+33,
+não é? Exatamente,
+esta porcentagem aqui é as notas.
+33% sim,
+sim E isso evita-se não é que das parametrizações ou as ponderações dessas três linhas.
+As ponderações sim,
+as ponderações aqui na avaliação de desempenho,
+posso editar os seus valores.
+Mas depois Tiago confirma-me,
+é preciso correr o timer ou esperar alguns minutos,
+certo? Neste caso é preciso correr o timer,
+porque sempre que existe uma atualização das parametrizações por área,
+é preciso ir ao Service Center,
+existe lá um módulo chamado Recença Farmacêutica Timer,
+que tem lá um timer chamado Atualizar Plano de Avaliação Contínua,
+que vai atualizar os planos de avaliação por área.
+de acordo com as ponderações que foram definidas.
+Basicamente isso acontece.
+.
+.
+Não,
+não é suposto sequer ser alterado.
+Quando é criado o programa,
+o efeito da alteração das parametrizações nunca é imediato,
+nem é suposto acontecer.
+Até que é feita uma cópia das parametrizações para este programa,
+de forma a que se nós inativarmos ou alterarmos uma parametrização,
+ela se mantenha exatamente igual no programa do residente que já está em avaliação contínua e já está em curso.
+Ou seja,
+isto só acontece em situações excepcionais.
+Essa atualização via timer e tem a gente ser solicitadas pela ACSS,
+a equipa da SPMS.
+Ou seja,
+quando nós criamos o programa,
+é suposto ele ficar exatamente estático da maneira que foi criado e não ter influência dessas alterações da parametrização.
+De forma a não alterarmos históricos,
+nem a alterarmos diretamente avaliações que já estão em curso.
+Não estamos ouvindo,
+não sei se foi apenas eu.
+Tá,
+mute,
+fica.
+Tá,
+está.
+Obrigada.
+Nós estamos a ouvir,
+Ricardo.
+Parecia que estava.
+.
+.
+E aí Legenda por Sônia Ruberti Acho que o Ricardo está a escrever.
+Tchau.
+Tiago,
+tu podes responder quando o Ricardo consegue te ouvir.
+Eu não consigo querer falar.
+Vou ler,
+vou ler.
+Não,
+o timer,
+este timer como a Kátia explicou e bem foi criado não sei se o Ricardo está a ouvir ok,
+boa Não sei se ele foi criado porque.
+.
+.
+Houve uma alteração de requisitos,
+basicamente,
+em que estes parâmetros não estavam para áreas de especialidade,
+estavam gerais para todas as áreas de especialidade e existiu a necessidade.
+.
+.
+separar os parâmetros de avaliação de desempenho e de conhecimento por área de especialidade e de forma a atualizarmos os programas que já estavam criados foi criado também este timer foi corrida uma vez,
+ou seja,
+ele só vai ser corrido novamente a pedido da ACSS em situações excepcionais porque não é mesmo para ser usado e provavelmente após termos esta avaliação,
+a primeira avaliação fechada,
+ele teria de ser reformulado da forma a não afetar o histórico.
+Obrigada,
+Ricardo.
+Bem,
+é aqui o que eu acho também relevante vos mostrar,
+é como é criado estas parametrizações.
+Pelo menos eu fiquei com a percepção nas reuniões que já aconteceram que havia muitas questões relativamente aos parâmetros.
+E então eu também queria vos mostrar que os parâmetros criados,
+até agora,
+é a forma de criá-los.
+É muito básico,
+é muito genérico.
+para criar um parâmetro só para vos mostrar,
+não sei se já viram.
+é só necessário escrever o nome do componente e a área de especialidade.
+Porquê? porque um componente Dependendo da sua área de especialidade,
+pode ter ponderações diferentes.
+Por isso é que há necessidade de escolher a área de especialidade e a ponderação.
+Porque na farmácia hospitalar pode valer 20%,
+mas na genética já vai valer 15% ou 30%.
+Há componentes para cada área de especialidade,
+porque se fossem iguais para todos,
+Não tinha havido esta necessidade de dividir,
+então,
+de segmentar.
+horário de especialidade.
+Quero vos mostrar,
+antes de avançar para o portal das candidaturas,
+Ah,
+ele é de profício.
+Na plataforma,
+estes foram os perfis que foram pedidos pela CSS,
+que é o RACE,
+e neste momento não é expectável que se crie mais nenhum.
+Só ver esse pedido.
+podem ser criados no ano de toda a avaliação final se existir essa necessidade isso mesmo muito bem também para criar os perfis Temos já aqui um botão que permite a descrição.
+E depois de criado,
+é possível adicionar as suas permissões.
+Depois de clicar em salvar,
+em guardar,
+é possível então vocês adicionarem que permissões é que o perfil passa a ter.
+Utilizadores é bastante intuitivo,
+vocês vão perceber isso.
+Estão divididos em utilizadores de back office,
+que é para quem é orientador,
+administrador,
+e em portal de candidaturas,
+o front office,
+para então quem é candidato ao residente farmacêutico.
+Temos aqui estas duas divisões para ser mais fácil de encontrar o utilizador pretendido.
+Podem remover utilizadores,
+inativar utilizadores ou mudar o tipo de perfil.
+E inativar o utilizador.
+Estou aqui só a ver parametrizações.
+É importante falar dos mais relevantes que é a avaliação de desempenho e avaliação de conhecimentos.
+Também temos aqui os estabelecimentos barra serviços de saúde que foi a listagem que nós tivemos acesso para vocês também saberem aqui quais é que há.
+Se caso seja necessário editar algum nome,
+é aqui que nós fazemos estas correções.
+A seguir,
+temos então aqui a listagem dos requerimentos.
+Aqui nós conseguimos então Ver os requerimentos aqui nas sessões nós podemos avaliar.
+A questão do Ricardo.
+Ricardo.
+Acho que ainda não conseguimos ouvir hoje.
+Nós esperamos que o Ricardo escreva E aí Na avaliação contínua,
+os critérios são os componentes da avaliação.
+estão dentro da banja de diversas valências.
+Então isso é uma boa questão.
+Mas na avaliação final existem critérios.
+Ok,
+existem os componentes e os critérios,
+é isso,
+não é? Sim.
+Eu só lá no composto espero que estou aqui a ver o que a Susana está a escrever.
+Muito bem.
+A listagem para retirar.
+.
+.
+Agora é importante mostrares algum requerimento,
+Susana,
+porque também há requerimentos novos solicitados e a parametrização dos requerimentos,
+por favor.
+Eu só aqui abri então.
+É possível fazer um download do requerimento.
+Opa aqui,
+depois se calhar vou à área onde se submete requerimentos,
+que não estou aqui a conseguir visualizar todos por tipo.
+Se calhar é melhor no portal da candidatura.
+É o portal de candidatura,
+se calhar mostrar as tipologias.
+Mas pode mostrar a parametrização dos requerimentos? os tipos de referimento e mais É a última opção.
+Já vi.
+Bom,
+obrigada,
+Cássia.
+Foi uma questão.
+No caderno de encargos estava descrito também a criação do atendimento,
+os reprimimentos e a parantilização.
+mas o relativo à abolição final será este ano também.
+Sim,
+o ecrã será sempre o mesmo o que vocês terão de adicionar são os novos requerimentos da avaliação final Mas,
+para uma questão de contexto,
+nós descrevemos na mesma.
+.
+.
+é quase que uma área do programa o programa já está criado e já existe,
+aquilo que falta adicionar é a avaliação final,
+mas para vocês terem um contexto um pouco maior Tem essa descrição na mesma no canal de encargos.
+Os requerimentos criados até o momento têm a ver com a fase do.
+.
+.
+da plataforma até onde nós estamos,
+é possível transferir do estabelecimento barra serviço de saúde,
+E ao clicar nós temos aqui os níveis de aprovação,
+por onde é que este requerimento tem de passar até ser aprovado.
+Nível de aprovação temos aqui que o administrador da ACSS,
+não há um outro perfil que possa aprovar por ele.
+e temos aqui o perfil final de ferido e então a comissão nacional da residência farmacêutica vou ver aqui se temos alguém que tenha mais do que um perfil Esta aqui,
+por exemplo,
+de obtenção de licença ou então a suspensão do programa,
+tem três níveis de aprovação.
+O estabelecimento,
+visto saúde,
+onde o residente está a fazer então o seu programa.
+A comissão e depois vai para o administrador da ACSS.
+Isto é,
+é um requerimento que tem de passar por diferentes pessoas,
+por diferentes perfis,
+até ser então finalizado.
+se foi emitido ou não.
+Se foi aceito ou não,
+peço desculpa.
+Isto dos requerimentos.
+E a salinária da residência farmacêutica,
+é onde eles conseguem,
+os ativos que têm acesso aos requerimentos,
+tomar as ações.
+As decisões.
+A clica.
+.
+.
+Tem aqui os dados gerais.
+Se estiver mais do que o nível da aprovação,
+então irá assim.
+Aprovar ou rejeitar.
+Sim,
+aprovar ou rejeitar.
+Sim.
+E aqui consegui ver também o documento que foi então submetido.
+Depois,
+listagens.
+Vista a gente é para retirar informação sobre o sistema.
+Quem tem esta permissão consegue tirar a informação sobre os orientadores que já têm residentes ou não e verificar envios de e-mails e brevemente terão aqui depois uma outra opção.
+É só a informação do sistema em formato Excel para depois também conseguirem filtrar esses dados.
+Isto está disponível para a ACSS,
+que é o gestor da plataforma,
+e eles assim conseguem orientar-se melhor nas ações que têm para fazer.
+Se calhar agora vou ao portal das candidaturas.
+Legenda por Sônia Ruberti Posso proceder,
+é que eu me entendi.
+O candidato ao residente farmacêutico.
+Quando entra então na plataforma.
+Consegue ver as suas candidaturas.
+Consegue ver aqui a informação sobre o concurso,
+quais são as vacas disponíveis.
+houver então a candidatura que submeteu.
+Aqui também com os seus dados.
+Para visualizar todos os concursos,
+tem já esta opção.
+E com isso é que eu vou deixar a informação.
+Acho que não há nenhum.
+.
+.
+Mas esta é a lógica.
+Quando os concursos estão válidos,
+estão válidos,
+peço desculpa,
+não era a palavra que eu queria utilizar.
+Quando os concursos estão abertos para receber as candidaturas,
+estão nessa fase,
+É possível também os candidatos fazerem a sua candidatura.
+de acordo então aqui com as datas Não sei se vocês já fizeram esse teste,
+se têm interesse em ver como é que é,
+se preferem fazer depois o teste.
+Fazerem uma candidatura.
+Não sei se já fizeram esse teste.
+Eu já tentei fazer,
+sim.
+Estelma.
+Sim,
+boa.
+Então,
+passo só esta parte à frente.
+A seguir,
+na residência farmacêutica.
+Este candidato,
+ao clicar em avaliação,
+vai conseguir ver as suas notas.
+Se já estiver como finalizada,
+isto é,
+enquanto orientador está.
+.
+.
+Está tudo bem? Não sei se o Miguel já falou contigo,
+mas hoje somos 8 ao jantar.
+É,
+eu sempre me encontro com isso lá.
+Pois,
+somos oito e eu ontem descongelei.
+porco para o jantar,
+uma caixinha pequenina.
+mas acabamos por não usar,
+porque já era muita comida que eu estava a fazer.
+Usei antes castanhas e cogumelos.
+Gastei as castanhas e os cogumelos,
+mas a carne não foi preciso.
+Então,
+não sei,
+se puderes cozinhar só para não estragar,
+Tá,
+mas é pouca para oito.
+Mas se deixares feito para amanhã para um almoço ou assim,
+não é preciso nada muito complicado,
+é só para a carne não estragar.
+Como eu descongelei ontem,
+está aí numa caixinha.
+Obrigada.
+É suspender o meu programa.
+Posso pedir este requerimento,
+escrevo aqui as datas para quando é que pretendo suspender e anexo o welcome ficheiro que seja necessário.
+Tenho aqui a obrigatoriedade de um fichário.
+Mas posso também pedir a transferência para um outro estabelecimento ou serviço de saúde e preencho então aqui os dados e submeto.
+Esta é a diferença do back office para o portal das candidaturas.
+O objetivo é que os dois acrescem.
+tenham uma forma de trabalhar semelhante,
+até para quem é da CSS consiga perceber e entender então aqui o funcionamento da plataforma e que seja intuitiva e perceptiva.
+Penso que do portal da candidatura é praticamente isto,
+é mais pequeno,
+tem menos funcionalidades,
+também o objetivo é que os candidatos ou os residentes venham aqui apenas para consultar o estado do seu programa ou as suas notas,
+o objetivo é que não haja necessidade de diariamente ou com frequência.
+E eles aqui em âmbito de avaliação final vão ter algumas ações,
+também podem ter a nível do concurso,
+das reclamações,
+etc.
+Podem ser aqui registados.
+e tem em área de requerimentos,
+mas é como a Suzana disse,
+são para ações mais esporádicas e consulta e acompanhamento do seu padrão.
+Há alguma questão que vocês gostariam de esclarecer? Se calhar posso dar a minha partilha para vir aqui.
+Se for necessário eu já volto a partilhar.
+Muito,
+eu penso que esta apresentação também responde a alguns pontos que vocês tinham levantado na vossa análise inicial.
+Sim,
+com certeza.
+Não sei se tem alguma dúvida posteriormente,
+podemos falar novamente.
+Ok,
+muito obrigada Obrigada pela partilha creio que não temos mais questões muito Muito,
+era mesmo fundamental conhecer.
+A ideia é mantermos a lógica existente para os componentes novos é muito importante que se mantenha com uma usabilidade bastante boa e simples para o utilizador porque também não são utilizadores técnicos,
+são utilizadores da área de farmácia.
+Por isso,
+quanto melhor for a usabilidade,
+melhor é também para eles e para não perderem demasiado tempo na utilização da plataforma por adicionarmos complexidades necessárias.
+Muito obrigada.
+não existem mais questões para nos ficar por aqui.
+Certo,
+ok.
+Já sei que as questões que o Ricardo colocou por e-mail já estão a ser endereçadas.
+Ok,
+muito obrigada e qualquer coisa entramos em contato.
+O Ricardo está aqui a escrever,
+deixem-me só ler.
+Ah,
+obrigada.
+Pronto.
+É justo,
+é isso.
+O mais importante.
+Exatamente,
+obrigada a todos.
+Adeus,
+boa tarde.
+Obrigada.
+Obrigada a todos.
+Até de semana.
+

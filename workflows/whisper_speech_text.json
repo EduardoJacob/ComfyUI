@@ -1,0 +1,50 @@
+{
+  "2": {
+    "inputs": {
+      "audio": "SPEECH",
+      "audioUI": "/api/view?filename=XXX.mp3&type=input&subfolder=&rand=0.46396163005875035"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Load Audio"
+    }
+  },
+  "3": {
+    "inputs": {
+      "text_0": "",
+      "text": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "11": {
+    "inputs": {
+      "model": "large-v3",
+      "language": "pt",
+      "task": "transcribe",
+      "n_threads": 4,
+      "device": "auto",
+      "separate_vocals": false,
+      "dtw_token_timestamps": false,
+      "vad": false,
+      "align": true,
+      "show_advance_cpp": false,
+      "hallu_filter": true,
+      "hallu_threshold": 0.6,
+      "show_advance_ext": false,
+      "audio": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "WhisperCPPNode",
+    "_meta": {
+      "title": "WhisperCPP Transcription"
+    }
+  }
+}

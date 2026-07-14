@@ -3,11 +3,11 @@ comfyui_input_folder = "S:/ComfyUI/ComfyUI-Easy-Install/ComfyUI/input"
 comfyui_output_folder = "S:/ComfyUI/ComfyUI-Easy-Install/ComfyUI/output"
 
 
-COMFYUI = function(workflow,prompt="",image="",video="",second_image="",scale="",duration="") {
+COMFYUI = function(workflow,prompt="",image="",video="",second_image="",scale="",duration="",speech="") {
  
   # Check the workflow signature and required inputs ----
   library("zeallot")
-  c(workflows,models) %<-% COMFYUI_GET_MODELS()
+  c(workflows,models,nodes) %<-% COMFYUI_GET_MODELS()
   
   if ( workflow == "" ) stop("Please provide a workflow file path.")
   workflow_name = tools::file_path_sans_ext(basename(workflow))
@@ -39,6 +39,7 @@ COMFYUI = function(workflow,prompt="",image="",video="",second_image="",scale=""
     workflow[i] = stringr::str_replace(workflow[i],"SECOND_IMAGE",second_image)
     workflow[i] = stringr::str_replace(workflow[i],"PROMPT",prompt)
     workflow[i] = stringr::str_replace(workflow[i],"IMAGE",image)
+    workflow[i] = stringr::str_replace(workflow[i],"SPEECH",speech)
     workflow[i] = stringr::str_replace(workflow[i],"VIDEO",video)
     workflow[i] = stringr::str_replace(workflow[i],"SCALE",as.character(scale) )
     workflow[i] = stringr::str_replace(workflow[i],"DURATION",as.character(duration) )
@@ -176,7 +177,8 @@ COMFYUI_GET_MODELS = function() {
     video = logical(),
     second_image = logical(),
     scale = logical(),
-    duration = logical()
+    duration = logical(),
+    speech = logical()
   )
   
   models = data.frame(
@@ -185,14 +187,22 @@ COMFYUI_GET_MODELS = function() {
     model_name = character()
   )
   
+  nodes = data.frame(
+    workflow = character(),
+    node = character()
+  )
+  
   for (f in workflows.list) {
-    txt = readLines(f, warn = FALSE)
+    # message("Processing workflow file: ", f)
+    json = readLines(f, warn = FALSE)
+    txt = json
     
-    # Compute Workflows
+    # Compute Workflows ----
     workflow = tools::file_path_sans_ext(basename(f))
     prompt = any(stringr::str_detect(txt, "PROMPT"))
     image = any(stringr::str_detect(txt, "IMAGE"))
     video = any(stringr::str_detect(txt, "VIDEO"))
+    speech = any(stringr::str_detect(txt, "SPEECH"))
     second_image = any(stringr::str_detect(txt, "SECOND_IMAGE"))
     scale = any(stringr::str_detect(txt, "SCALE"))
     duration = any(stringr::str_detect(txt, "DURATION"))
@@ -200,12 +210,14 @@ COMFYUI_GET_MODELS = function() {
     workflows = rbind(workflows,data.frame(workflow=workflow,
                                            prompt=prompt,
                                            image=image,
+                                           speech=speech,
                                            video=video,
                                            second_image=second_image,
                                            scale=scale,
                                            duration=duration)) 
     
-    # Compute Models
+    # Compute Models ----
+    txt = json
     txt = txt[stringr::str_detect(txt, "\\.(safetensors|gguf|pth)")]
     
     if ( length(txt) == 0 ) txt = " dummy string to avoid empty loop and preserve prompt/image/video info"
@@ -216,29 +228,18 @@ COMFYUI_GET_MODELS = function() {
       
       models = rbind(models,data.frame(workflow=workflow,model_type=model_type,model_name=model_name))
     }
+    
+    # Compute Nodes ----
+    pattern = '"class_type"\\s*:\\s*"([^"]+)"'
+    matching_lines = grep(pattern, json, value = TRUE)
+    matches = regmatches(matching_lines, regexec(pattern, matching_lines))
+    extracted_values = sapply(matches, function(x) x[2])
+    # print(extracted_values) 
+    nodes = rbind(nodes,data.frame(workflow=workflow,node=extracted_values))
   }
   
-  return(list(workflows,models))
+  return(list(workflows,models,nodes))
   
-}
-
-
-COMFYUI_IMAGE_COMPARER = function(image="", second_image="") { 
-  
-  wf = jsonlite::fromJSON("./workflows/ImageComparer.json", simplifyVector = FALSE)
-  
-  wf[["nodes"]][[1]][["widgets_values"]][[1]] = image
-  wf[["nodes"]][[2]][["widgets_values"]][[1]] = second_image
-  
-  # json = jsonlite::toJSON(wf, auto_unbox = TRUE, pretty = FALSE)
-  json = jsonlite::toJSON(wf)
-  
-  utils::writeClipboard(json)
-  
-  utils::browseURL("http://127.0.0.1:8188")
-  
-  cat("Workflow copied to clipboard.\n")
-  cat("NOW click inside ComfyUI and press Ctrl+V (important).\n")
 }
 
 
