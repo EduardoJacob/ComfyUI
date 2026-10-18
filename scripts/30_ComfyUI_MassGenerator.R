@@ -2,7 +2,7 @@
 
 source("ComfyUIfunctions.R")
 
-rstudiotools::displaymedia("./images")
+rstudiotools::displaymedia("./screenshots/TextToImageModels.png")
 
 # Make an inventory of models used in workflows
 # Using zeallot package for multiple assignment (unpacking) , aka destructuring assignment in other languages
@@ -76,9 +76,10 @@ for ( i in 21:50 ) {
   
   print(grid_image)  
   
-  message("Press Enter to continue")
-  readline()
+  answer = readline("Press Enter to continue, or type 'q' to quit: ")
+  if (tolower(answer) == "q") break
 }
+
 
 
 
