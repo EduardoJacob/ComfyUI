@@ -21,7 +21,7 @@ workflow = "./workflows/qwen21_text_image.json"
 
 start = 1
 end = length(prompts)
-# end = 1
+# end = 2
 
 for ( i in start:end ) {
   prompt = prompts[i]
@@ -30,7 +30,7 @@ for ( i in start:end ) {
   output_image = COMFYUI(workflow=workflow,prompt=prompt)
   
   # For speed, bypass the displaymedia function, which is slow for large images
-  # rstudiotools::displaymedia( file.path(comfyui_output_folder,output_image) )
+  rstudiotools::displaymedia( file.path(comfyui_output_folder,output_image) )
   
 }
 
@@ -44,7 +44,7 @@ zit = list.files("P:/DISKD/Wallpapers", pattern = "^zit2x.*\\.png$", full.names 
 flux2 = list.files("P:/DISKD/Wallpapers", pattern = "^flux2x.*\\.png$", full.names = TRUE)
 qwen21 = list.files("P:/DISKD/Wallpapers", pattern = "^qwen21.*\\.png$", full.names = TRUE)
 
-for ( i in 21:50 ) {
+for ( i in 1:50 ) {
   file_paths = c(krea2[i], zit[i], flux2[i], qwen21[i])
   file_names = basename(file_paths)
   images = lapply(file_paths, magick::image_read)
