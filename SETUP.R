@@ -28,6 +28,7 @@ usethis::use_readme_rmd()
 usethis::browse_github()
 
 usethis::use_git_ignore("voices")
+usethis::use_git_ignore("transcriptions")
 
 
 # Start LM Studio if needed (if terminal already in use, close terminal panel and run again)
@@ -77,7 +78,7 @@ source("ComfyUIfunctions.R")
 library("zeallot")
 c(workflows,models,nodes) %<-% COMFYUI_GET_MODELS()
 
-
+# https://huggingface.co/Comfy-Org
 
 
 

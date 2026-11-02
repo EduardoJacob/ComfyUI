@@ -1,0 +1,6 @@
+Give me a prompt inspired by the attached image.
+Suitable for MiniMax H3 FirstFrame2Video model.
+Do not approximate the camera.
+Preserve the distance to the scene.
+Be creative and move the main characters.
+Give me only the prompt and nothing more.

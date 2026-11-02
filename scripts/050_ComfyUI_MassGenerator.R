@@ -2,8 +2,7 @@
 
 source("ComfyUIfunctions.R")
 
-rstudiotools::displaymedia("./screenshots/TextToImageModels.png")
-
+# rstudiotools::displaymedia("./screenshots/TextToImageModels.png")
 # Make an inventory of models used in workflows
 # Using zeallot package for multiple assignment (unpacking) , aka destructuring assignment in other languages
 # library("zeallot")
@@ -16,12 +15,13 @@ prompts = readLines(prompts, encoding = "UTF-8")
 
 # workflow = "./workflows/krea2_text_image.json"
 # workflow = "./workflows/zit2x_text_image.json"
+workflow = "./workflows/zit_aio_text_image.json"
 # workflow = "./workflows/flux2x_text_image.json"
-workflow = "./workflows/qwen21_text_image.json"
+# workflow = "./workflows/qwen21_text_image.json"
 
 start = 1
 end = length(prompts)
-# end = 2
+# end = 4
 
 for ( i in start:end ) {
   prompt = prompts[i]
